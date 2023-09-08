@@ -14,7 +14,7 @@ const userSchema = Schema(
         type: String,
         require: true,
       },
-      imageURL: {
+      image: {
         type: String,
       },
       role: {

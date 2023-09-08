@@ -2,6 +2,7 @@ const express = require('express');
 const userRouter = require('./routes/user');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+const fileRouter = require('./routes/upload');
 
 const app = express();
 
@@ -24,5 +25,5 @@ function loggerMiddle(req, res, next) {
 //     res.send('hello world')
 // });
 app.use('/user', userRouter)
-
+app.use('/upload', fileRouter);
 app.listen(port, () => console.log('app is running on ', port))
