@@ -27,6 +27,8 @@ function Add() {
             image: image.name
         }
         const bookRes = await axios.post('http://localhost:5000/books/add', newBook)
+        const uploadFileResponse = await axios.post('http://localhost:5000/books/upload', image)
+        console.log("🚀 ~ file: Add.js:31 ~ handleSubmit ~ uploadFileResponse:", uploadFileResponse)
         console.log("🚀 ~ file: Add.js:30 ~ handleSubmit ~ bookRes:", bookRes)
         
     } catch (error) {
