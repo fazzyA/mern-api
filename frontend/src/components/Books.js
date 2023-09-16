@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import axios from 'axios'
+
 function Books() {
     const [books, setBooks] = useState([])
     // fetch api get all books
@@ -24,7 +27,9 @@ function Books() {
     
   return (
     <>
+    <Row>
     {books.map((item) => (
+        <Col className='col-4' xs={1} md={3}>
             <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src={item.image} />
             <Card.Body>
@@ -36,8 +41,10 @@ function Books() {
               <Button variant="primary">Buy</Button>
             </Card.Body>
           </Card>
+          </Col>
       
     ))}
+    </Row>
     </>
   );
 }
