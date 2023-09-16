@@ -1,0 +1,6 @@
+user CRUD
+route
+register post
+login post
+list of users get
+
