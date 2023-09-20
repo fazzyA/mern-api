@@ -31,7 +31,7 @@ function Books() {
     {books.map((item) => (
         <Col className='col-4' xs={1} md={3}>
             <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={item.image} />
+            <Card.Img variant="top" src={`/upload/${item.image}`} />
             <Card.Body>
               <Card.Title>{item.name}</Card.Title>
               <Card.Text>

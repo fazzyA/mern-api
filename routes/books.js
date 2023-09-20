@@ -6,8 +6,8 @@ const upload = multer({dest: 'uploads/'});
 
 bookRouter.route('/').get(getBooks);
 bookRouter.route('/upload')
-    .post(upload.single('image'),
-    () => console.log('after image upload'));
+    .post(upload.single('file'),
+    async (req, res) => console.log('==', req.file));
 bookRouter.route('/add').post(addBook); // in database
 bookRouter.route('/update/:id').put();
 module.exports = bookRouter;

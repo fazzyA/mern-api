@@ -26,10 +26,13 @@ function Add() {
             author,
             image: image.name
         }
-        const bookRes = await axios.post('http://localhost:5000/books/add', newBook)
-        const uploadFileResponse = await axios.post('http://localhost:5000/books/upload', image)
-        console.log("🚀 ~ file: Add.js:31 ~ handleSubmit ~ uploadFileResponse:", uploadFileResponse)
-        console.log("🚀 ~ file: Add.js:30 ~ handleSubmit ~ bookRes:", bookRes)
+        const formData = new FormData();
+        formData.append('file', image);
+        // const bookRes = await axios.post('http://localhost:5000/books/add', newBook)
+        // console.log("🚀 ~ file: Add.js:30 ~ handleSubmit ~ bookRes:", bookRes)
+        const uploadFileResponse = await fetch('http://localhost:5000/books/upload', {method: "POST", body: formData})
+        if(uploadFileResponse.ok) console.log("🚀 ~ file: Add.js:31 ~ handleSubmit ~ uploadFileResponse:", uploadFileResponse)
+        else console.log('err in file upload')
         
     } catch (error) {
         console.log("🚀 ~ file: Add.js:23 ~ handleSubmit ~ error:", error)
